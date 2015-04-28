@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace Todo.App.Web.Areas.Api.Controllers
 {
@@ -14,13 +14,13 @@ namespace Todo.App.Web.Areas.Api.Controllers
         [HttpGet]
         public JsonResult GetById(int id)
         {
-            return Json("", JsonRequestBehavior.AllowGet);
+            return Json(id, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         public JsonResult SaveTask()
         {
-            return Json(new JavaScriptSerializer().Serialize(""));
+            return Json(JsonConvert.SerializeObject(""));
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace Todo.App.Web.Controllers
 {
@@ -8,8 +7,6 @@ namespace Todo.App.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.InitialData = new JavaScriptSerializer().Serialize("");
-
             return View();
         }
     }
