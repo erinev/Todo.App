@@ -1,0 +1,62 @@
+﻿@using SquishIt.Framework
+@{
+    ViewBag.Title = "Index";
+}
+@*<script type="text/javascript">
+    @if (ViewBag.BatchList != null)
+    {
+        @:var batchList = @Html.Raw(ViewBag.BatchList)
+    }
+</script>  
+<script type="text/javascript">  
+    @if (ViewBag.InitialData != null)
+    {
+        @:var initialData = @Html.Raw(ViewBag.InitialData)
+    }
+</script>*@
+
+<!--############################## -->
+<!--view -->
+<!--############################## -->
+
+
+<!-- Main body -->
+<div id="MainDiv">
+    <!-- inserted via template -->
+    <h1>Hello world!</h1>
+</div>
+
+<!--############################## -->
+<!--Templates -->
+<!--############################## -->
+
+<!-- General information template -->
+<script id="General" type="text/html">
+    
+</script>
+
+<!-- Banner template -->
+<script id="BannerTemplate" type="text/html"> 
+    
+</script>
+
+<!-- Asset template -->
+<script id="AssetTemplate" type="text/html">
+    
+</script>
+
+<script id="AnimationAssetTemplate" type="text/html">  
+    
+</script>
+
+<script id="ClickTagTemplate" type="text/html">  
+    
+</script>
+
+@section TodoAppScripts {
+    @Html.Raw(Bundle
+        .JavaScript()
+        .Add("~/Scripts/TodoApp/app.js")
+        
+        .Render("~/Scripts/TodoApp#.js"))
+}

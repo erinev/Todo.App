@@ -1,0 +1,21 @@
+﻿@using SquishIt.Framework;
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TodoApp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+        @Html.Raw(Bundle
+            .JavaScript() 
+            .Add("~/Scripts/Libs/jquery-1.11.2.js")
+            .Add("~/Scripts/Libs/Underscore-1.8.3.js")
+            .Add("~/Scripts/Libs/Backbone-1.1.2.js")
+
+            .Render("~/Scripts/TodoApp_Global#.js")
+            )
+    </head>
+    <body>
+        @RenderBody()
+        @RenderSection("TodoAppScripts", false)
+    </body>
+</html>

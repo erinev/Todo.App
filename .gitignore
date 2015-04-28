@@ -1,2 +1,8 @@
 src/.nuget/NuGet.exe
 src/Todo.App.v12.suo
+src/packages/
+*.user
+bin/
+obj/
+logs/
+*.suo
