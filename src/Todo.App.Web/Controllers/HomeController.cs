@@ -2,7 +2,7 @@
 
 namespace Todo.App.Web.Controllers
 {
-    public class TaskController : Controller
+    public class HomeController : Controller
     {
         [HttpGet]
         public ActionResult Index()

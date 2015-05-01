@@ -17,10 +17,9 @@ namespace Todo.App.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new {controller = "Task", action = "Index", id = UrlParameter.Optional}, // Parameter defaults
-                new[] {"Todo.App.Web.Controllers"}
+                "Default",
+                "{controller}/{action}/{id}",
+                new {controller = "Home", action = "Index", id = UrlParameter.Optional}
                 );
         }
 

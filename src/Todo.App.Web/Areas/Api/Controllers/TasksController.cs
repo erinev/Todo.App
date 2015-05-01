@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Todo.App.Web.Areas.Api.Controllers
 {
-    public class TaskController : Controller
+    public class TasksController : Controller
     {
         [HttpGet]
         public JsonResult GetAll()
