@@ -16,6 +16,8 @@ namespace Todo.App.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
