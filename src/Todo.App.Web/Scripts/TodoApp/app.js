@@ -1,4 +1,24 @@
-﻿var Router = Backbone.Router.extend({
+﻿(function () {
+
+    window.TodoApp = {
+        Models: {},
+        Views: {},
+        Collections: {}
+    };
+
+    TodoApp.Models.Task = Backbone.Model.extend({
+        urlRoot : "api/v1/tasks/",
+
+        defaults: {
+            id: '',
+            title: '',
+            isCompleted: false
+        }
+    });
+
+})();
+
+/*var Router = Backbone.Router.extend({
     initialize: function() {
         /*if (window['initialData'] != undefined) {
             this.syncBannerModel = new SyncBannerModel(initialData);
@@ -15,10 +35,10 @@
                     buttons: [{ title: multiPanelResources.ok}]
                 
                 });
-        }*/
+        }#1#
     }
 });
 
 var router = new Router;
 
-Backbone.history.start();
+Backbone.history.start();*/

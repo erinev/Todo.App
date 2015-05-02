@@ -154,7 +154,7 @@
     <Content Include="Scripts\Libs\Backbone-1.1.2.js" />
     <Content Include="Scripts\Libs\jquery-1.11.2.js" />
     <Content Include="Scripts\Libs\Underscore-1.8.3.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Libs\modernizr-2.8.3.js" />
     <Content Include="Scripts\TodoApp\app.js" />
   </ItemGroup>
   <ItemGroup>
