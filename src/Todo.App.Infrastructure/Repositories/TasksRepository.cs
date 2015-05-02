@@ -18,30 +18,48 @@ namespace Todo.App.Infrastructure.Repositories
 
         public IEnumerable<TaskModel> GetAll()
         {
-            IEnumerable<TaskModel> result = _sqlConnection.Query<TaskModel>(sql: TaskAccessModel.GetAllQuery());
+            IEnumerable<TaskModel> result = _sqlConnection.Query<TaskModel>(
+                sql: TaskAccessModel.GetAllQuery());
+
             return result;
         }
 
         public TaskModel GetById(int id)
         {
             TaskModel result = _sqlConnection.Query<TaskModel>(
-                sql: TaskAccessModel.GetByIdQuery(), param: TaskAccessModel.GetByIdParams(id)).Single();
+                sql: TaskAccessModel.GetByIdQuery(), 
+                param: TaskAccessModel.GetByIdParams(id)).Single();
+
             return result;
         }
 
-        public TaskModel Create(TaskModel taskAccessModel)
+        public TaskModel Create(TaskModel task)
         {
-            throw new System.NotImplementedException();
+            var id = _sqlConnection.Query<int>(
+                sql: TaskAccessModel.CreateQuery(), 
+                param: TaskAccessModel.CreateParams(task)).Single();
+
+            var result = this.GetById(id);
+
+            return result;
         }
 
-        public TaskModel Update(TaskModel taskAccessModel)
+        public TaskModel Update(TaskModel task)
         {
-            throw new System.NotImplementedException();
+            var id = _sqlConnection.Query<int>(
+                sql: TaskAccessModel.UpdateQuery(),
+                param: TaskAccessModel.UpdateParams(task)).Single();
+
+            var result = this.GetById(id);
+
+            return result;
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            _sqlConnection.Execute(
+                sql: TaskAccessModel.DeleteQuery(),
+                param: TaskAccessModel.DeleteParams(id));
         }
     }
 
@@ -49,8 +67,8 @@ namespace Todo.App.Infrastructure.Repositories
     {
         IEnumerable<TaskModel> GetAll();
         TaskModel GetById(int id);
-        TaskModel Create(TaskModel taskAccessModel);
-        TaskModel Update(TaskModel taskAccessModel);
+        TaskModel Create(TaskModel task);
+        TaskModel Update(TaskModel task);
         void Delete(int id);
     }
 }

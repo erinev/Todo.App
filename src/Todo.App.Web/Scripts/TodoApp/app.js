@@ -10,8 +10,6 @@
         urlRoot : "api/v1/tasks/",
 
         defaults: {
-            id: '',
-            title: '',
             isCompleted: false
         }
     });

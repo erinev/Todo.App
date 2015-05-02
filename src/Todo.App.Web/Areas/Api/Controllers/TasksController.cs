@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Newtonsoft.Json;
 using Todo.App.Infrastructure.Models;
 using Todo.App.Infrastructure.Repositories;
 
@@ -35,23 +34,29 @@ namespace Todo.App.Web.Areas.Api.Controllers
 
         [Route("tasks")]
         [HttpPost]
-        public JsonResult Create(TaskModel taskAccessModel)
+        public JsonResult Create(TaskModel task)
         {
-            return Json(JsonConvert.SerializeObject(taskAccessModel));
+            var tasks = _tasksRepository.Create(task);
+
+            return Json(tasks);
         }
 
-        [Route("tasks")]
+        [Route("tasks/{id}")]
         [HttpPut]
-        public JsonResult Update(TaskModel taskAccessModel)
+        public JsonResult Update(TaskModel task)
         {
-            return Json(JsonConvert.SerializeObject(taskAccessModel));
+            var tasks = _tasksRepository.Update(task);
+
+            return Json(tasks);
         }
 
         [Route("tasks/{id}")]
         [HttpDelete]
-        public JsonResult Delete(int id)
+        public JsonResult Delete(TaskModel task)
         {
-            return Json(JsonConvert.SerializeObject(id));
+            _tasksRepository.Delete(task.id);
+
+            return Json(string.Format("Task with id: {0} deleted successfully", task.id));
         }
     }
 }
